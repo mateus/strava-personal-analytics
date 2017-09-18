@@ -7,7 +7,7 @@ end
 
 gem 'rails', '~> 5.1.4'
 gem 'puma', '~> 3.7'
-gem 'sqlite3'
+gem 'pg'
 gem 'sass-rails', '~> 5.0'
 gem 'webpacker'
 gem 'strava-api-v3'
