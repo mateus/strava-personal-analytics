@@ -1,0 +1,11 @@
+{
+  "name": "strava-personal-analytics",
+  "private": true,
+  "dependencies": {
+    "@rails/webpacker": "^3.0.1",
+    "chart.js": "^2.7.0"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^2.8.2"
+  }
+}

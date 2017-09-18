@@ -1,0 +1,11 @@
+en:
+  distance:
+    centi:
+      one: "cm"
+      other: "cm"
+    unit:
+      one: "m"
+      other: "m"
+    thousand:
+      one: "km"
+      other: "km"

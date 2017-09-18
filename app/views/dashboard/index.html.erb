@@ -1,0 +1,106 @@
+<div class="container">
+  <section class="user">
+    <%= image_tag @athlete[:profile], size: '56', alt: 'Profile', class: 'user__avatar' %>
+    <div class="user__details">
+      <span class="user__name">
+        <%= @athlete[:firstname] %> <%= @athlete[:lastname] %>
+        <% if @athlete[:premium] %>
+          <span class="badge">Premium</span>
+        <% end %>
+      </span>
+      <span class="user__location"><%= @athlete[:city] %>, <%= @athlete[:state] %></span>
+    </div>
+    <div class="user__extra">
+      <div class="user__extra-item">
+        <span class="user__extra-heading">Member since</span>
+        <span class="user__extra-value"><%= created_at_formated(@athlete) %></span>
+      </div>
+      <div class="user__extra-item">
+        <span class="user__extra-heading">Following</span>
+        <span class="user__extra-value"><%= @athlete[:friend_count] %></span>
+      </div>
+      <div class="user__extra-item">
+        <span class="user__extra-heading">Followers</span>
+        <span class="user__extra-value"><%= @athlete[:follower_count] %></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="summary">
+    <div class="summary__item">
+      <h3>Activities</h3>
+      <span class="summary__value"><%= @activities.length %></span>
+    </div>
+    <div class="summary__item">
+      <h3>Total distance since <%= first_activity_date(@activities) %></h3>
+      <span class="summary__value"><%= total_distance_all_time(@activities) %></span>
+    </div>
+  </section>
+
+  <section class="charts">
+    <div class="chart-wrapper">
+      <h3>Distance</h3>
+      <canvas id="distance"></canvas>
+    </div>
+    <div class="chart-wrapper">
+      <h3>Average Speed</h3>
+      <canvas id="average_speed"></canvas>
+    </div>
+  </section>
+
+  <section>
+    <h3>Activities</h3>
+    <div class="activities">
+      <% @activities.reverse.each do |activity| %>
+        <div class="activity">
+          <div class="activity__image">
+            <%= image_tag summary_map_url(activity['map']['summary_polyline']) %>
+          </div>
+          <div class="activity__content">
+            <span class="activity__name"><%= activity['name'] %></span>
+            <span class="activity__date"><%= date_formated(activity['start_date'], activity['timezone']) %></span>
+            <div class="activity__details">
+              <div class="activity__detail">
+                <span class="activity__detail-heading">Type</span>
+                <span class="activity__detail-value"><%= activity['type'] %></span>
+              </div>
+              <div class="activity__detail">
+                <span class="activity__detail-heading">Distance</span>
+                <span class="activity__detail-value"><%= meters_formated(activity['distance']) %></span>
+              </div>
+              <div class="activity__detail">
+                <span class="activity__detail-heading">Total time</span>
+                <span class="activity__detail-value"><%= seconds_formated(activity['elapsed_time']) %></span>
+              </div>
+              <div class="activity__detail">
+                <span class="activity__detail-heading">Moving time</span>
+                <span class="activity__detail-value"><%= seconds_formated(activity['moving_time']) %></span>
+              </div>
+              <div class="activity__detail">
+                <span class="activity__detail-heading">Average Speed</span>
+                <span class="activity__detail-value"><%= meters_per_minute_formated(activity['average_speed']) %></span>
+              </div>
+              <div class="activity__detail">
+                <span class="activity__detail-heading">Max Speed</span>
+                <span class="activity__detail-value"><%= meters_per_minute_formated(activity['max_speed']) %></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </section>
+</div>
+
+<script>
+  window.onload = function() {
+    distanceChart(
+      <%= raw(list_of(@activities)[:start_date_local]) %>,
+      <%= list_of(@activities)[:distance] %>
+    );
+    averageSpeedChart(
+      <%= raw(list_of(@activities)[:start_date_local]) %>,
+      <%= list_of(@activities)[:average_speed] %>
+    );
+  };
+</script>
