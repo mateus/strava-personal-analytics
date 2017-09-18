@@ -1008,7 +1008,11 @@ caniuse-db@^1.0.30000529, caniuse-db@^1.0.30000634, caniuse-db@^1.0.30000639:
   version "1.0.30000732"
   resolved "https://registry.yarnpkg.com/caniuse-db/-/caniuse-db-1.0.30000732.tgz#ddb3c885e88caf779c7080ee09653fb85d1bd24b"
 
-caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000718, caniuse-lite@^1.0.30000726:
+caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000726:
+  version "1.0.30000733"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000733.tgz#ebfc48254117cc0c66197a4536cb4397a6cfbccd"
+
+caniuse-lite@^1.0.30000718:
   version "1.0.30000732"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000732.tgz#7cf9ca565f4d31a4b3dfa6e26b72ec22e9027da1"
 
@@ -3863,10 +3867,10 @@ postcss-modules-values@^1.1.0:
     postcss "^6.0.1"
 
 postcss-nesting@^4.0.1:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/postcss-nesting/-/postcss-nesting-4.1.0.tgz#28ef1e7cf9d497618ad2e5fa4de25d4757da1653"
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/postcss-nesting/-/postcss-nesting-4.2.0.tgz#fde9edaf13cedc71e29567e5cb8ef440adc32c47"
   dependencies:
-    postcss "^6.0.1"
+    postcss "^6.0.11"
 
 postcss-normalize-charset@^1.1.0:
   version "1.1.1"
