@@ -1,9 +1,6 @@
 {
   "name": "strava-personal-analytics",
   "private": true,
-  "engines": {
-    "yarn": ">= 0.25.2",
-  },
   "dependencies": {
     "@rails/webpacker": "^3.0.1",
     "chart.js": "^2.7.0",
