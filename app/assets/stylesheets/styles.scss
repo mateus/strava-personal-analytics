@@ -1,3 +1,5 @@
+$avatar-size: 56px;
+
 $spacing-tight: 5px;
 $spacing: 10px;
 $spacing-loose: 20px;
@@ -5,6 +7,9 @@ $spacing-loose: 20px;
 $red: #fb4b01;
 $light-grey: #e5e5e5;
 $grey: #6a737d;
+
+$breakpoing-medium: 1000px;
+$breakpoing-small: 500px;
 
 * {
   box-sizing: border-box;
@@ -52,16 +57,39 @@ h3 {
   color: white;
 }
 
+.topbar {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid $light-grey;
+  padding-bottom: $spacing-loose;
+  margin-bottom: $spacing-loose;
+
+  @media screen and (max-width: $breakpoing-medium) {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
 .user {
   display: flex;
   align-items: center;
-  padding-bottom: $spacing-loose;
-  margin-bottom: $spacing-loose;
-  border-bottom: 1px solid $light-grey;
+
+  @media screen and (max-width: $breakpoing-small) {
+    flex-direction: column;
+    width: 100%;
+  }
 }
 
 .user__avatar {
+  width: $avatar-size;
+  height: $avatar-size;
   border-radius: 50%;
+
+  @media screen and (max-width: $breakpoing-small) {
+    width: $avatar-size * 1.5;
+    height: $avatar-size * 1.5;
+    margin-bottom: $spacing;
+  }
 }
 
 .user__details {
@@ -69,12 +97,25 @@ h3 {
   flex-direction: column;
   padding-left: $spacing;
   font-weight: 300;
+
+  @media screen and (max-width: $breakpoing-small) {
+    padding-left: 0;
+    align-items: center;
+  }
 }
 
 .user__name {
   display: flex;
   align-items: center;
   font-size: 1.4rem;
+
+  @media screen and (max-width: $breakpoing-small) {
+    flex-direction: column;
+
+    .badge {
+      margin: $spacing-tight 0;
+    }
+  }
 }
 
 .user__location {
@@ -83,16 +124,31 @@ h3 {
 
 .user__extra {
   flex: 1;
+  width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: flex-end;
-  margin: 0 $spacing-loose * -1;
 }
 
 .user__extra-item {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  padding: 0 $spacing-loose;
+  padding-left: $spacing-loose;
+
+  &:first-child {
+    padding-left: 0;
+  }
+
+  @media screen and (max-width: $breakpoing-medium) {
+    margin-top: $spacing-loose;
+  }
+
+  @media screen and (max-width: $breakpoing-small) {
+    flex: 1 1 50%;
+    align-items: flex-start;
+    padding-left: 0;
+  }
 }
 
 .user__extra-heading {

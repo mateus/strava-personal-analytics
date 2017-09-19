@@ -1,16 +1,22 @@
 <div class="container">
-  <section class="user">
-    <%= image_tag @athlete[:profile], size: '56', alt: 'Profile', class: 'user__avatar' %>
-    <div class="user__details">
-      <span class="user__name">
-        <%= @athlete[:firstname] %> <%= @athlete[:lastname] %>
-        <% if @athlete[:premium] %>
-          <span class="badge">Premium</span>
-        <% end %>
-      </span>
-      <span class="user__location"><%= @athlete[:city] %>, <%= @athlete[:state] %></span>
+  <section class="topbar">
+    <div class="user">
+      <%= image_tag @athlete[:profile], alt: 'Profile', class: 'user__avatar' %>
+      <div class="user__details">
+        <span class="user__name">
+          <%= @athlete[:firstname] %> <%= @athlete[:lastname] %>
+          <% if @athlete[:premium] %>
+            <span class="badge">Premium</span>
+          <% end %>
+        </span>
+        <span class="user__location"><%= @athlete[:city] %>, <%= @athlete[:state] %></span>
+      </div>
     </div>
     <div class="user__extra">
+      <div class="user__extra-item">
+        <span class="user__extra-heading">Last activity</span>
+        <span class="user__extra-value"><%= humanize_date(@activities.last['start_date']) %></span>
+      </div>
       <div class="user__extra-item">
         <span class="user__extra-heading">Member since</span>
         <span class="user__extra-value"><%= created_at_formated(@athlete) %></span>
