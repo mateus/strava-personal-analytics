@@ -48,6 +48,7 @@ img {
 
   @media screen and (max-width: $breakpoing-medium) {
     padding: 0 $spacing;
+    margin-top: $spacing-loose * 2;
   }
 }
 
@@ -184,12 +185,16 @@ img {
 }
 
 .summary__item {
-  flex: 1 1 50%;
+  flex: 1 1 25%;
   padding: 0 $spacing;
   padding-bottom: $spacing-loose;
 
+  @media screen and (max-width: $breakpoing-medium) {
+    flex: 1 1 50%;
+  }
+
   @media screen and (max-width: $breakpoing-small) {
-    flex: 1 1 100%;
+    flex: 1 1 50%;
     padding: 0;
     padding-bottom: $spacing-loose;
   }
@@ -197,7 +202,10 @@ img {
 
 .summary__value {
   font-weight: 300;
-  font-size: 2rem;
+  font-size: 1.6rem;
+  line-height: 1;
+  margin: 0;
+  margin-bottom: $spacing;
 }
 
 .charts {
