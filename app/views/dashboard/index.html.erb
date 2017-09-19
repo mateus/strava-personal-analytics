@@ -51,13 +51,13 @@
     </div>
     <div class="summary__item">
       <h3>This week</h3>
-      <p class="summary__value">-- km</p>
-      <p class="summary__value">--:--</p>
+      <p class="summary__value"><%= this_week_distance(@activities) %></p>
+      <p class="summary__value"><%= this_week_time(@activities) %></p>
     </div>
     <div class="summary__item">
       <h3>Last week</h3>
-      <p class="summary__value">-- km</p>
-      <p class="summary__value">--:--</p>
+      <p class="summary__value"><%= last_week_distance(@activities) %></p>
+      <p class="summary__value"><%= last_week_time(@activities) %></p>
     </div>
   </section>
 

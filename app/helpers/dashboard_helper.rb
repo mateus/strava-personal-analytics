@@ -22,6 +22,34 @@ module DashboardHelper
     }
   end
 
+  def this_week_distance(activities)
+    filtered = activities.select { |activity| activity['start_date_local'].to_date >= Date.today.beginning_of_week }
+    total_distance = filtered.map { |a| a['distance'] }.sum
+    number_to_human(total_distance, units: :distance, precision: 4)
+  end
+
+  def this_week_time(activities)
+    filtered = activities.select { |activity| activity['start_date_local'].to_date >= Date.today.beginning_of_week }
+    total_elapsed_time = filtered.map { |a| a['elapsed_time'] }.sum
+    seconds_formated(total_elapsed_time)
+  end
+
+  def last_week_distance(activities)
+    filtered = activities.select {
+      |activity| activity['start_date_local'].to_date.between?(Date.today.last_week, Date.today.beginning_of_week - 1.day)
+    }
+    total_distance = filtered.map { |a| a['distance'] }.sum
+    number_to_human(total_distance, units: :distance, precision: 4)
+  end
+
+  def last_week_time(activities)
+    filtered = activities.select {
+      |activity| activity['start_date_local'].to_date.between?(Date.today.last_week, Date.today.beginning_of_week - 1.day)
+    }
+    total_elapsed_time = filtered.map { |a| a['elapsed_time'] }.sum
+    seconds_formated(total_elapsed_time)
+  end
+
   def created_at_formated(athlete)
     athlete['created_at'].to_time.strftime('%b %e, %Y')
   end
@@ -31,7 +59,7 @@ module DashboardHelper
   end
 
   def seconds_formated(seconds)
-    Time.at(seconds).strftime("%H:%M")
+    [seconds / 3600, seconds / 60 % 60, seconds % 60].map { |t| t.to_s.rjust(2,'0') }.join(':')
   end
 
   def humanize_seconds(secs)
