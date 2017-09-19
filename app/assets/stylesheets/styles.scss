@@ -9,7 +9,7 @@ $light-grey: #e5e5e5;
 $grey: #6a737d;
 
 $breakpoing-medium: 1000px;
-$breakpoing-small: 500px;
+$breakpoing-small: 620px;
 
 * {
   box-sizing: border-box;
@@ -17,6 +17,7 @@ $breakpoing-small: 500px;
 
 html,
 body {
+  margin: 0;
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
 
@@ -42,6 +43,7 @@ img {
 
 .page {
   margin: $spacing-loose auto;
+  margin-bottom: 0;
   max-width: 1200px;
 }
 
@@ -79,8 +81,10 @@ img {
 .user {
   display: flex;
   align-items: center;
+  font-size: 1rem;
 
   @media screen and (max-width: $breakpoing-small) {
+    font-size: 1.3rem;
     flex-direction: column;
     width: 100%;
     padding-bottom: $spacing;
@@ -114,7 +118,7 @@ img {
 .user__name {
   display: flex;
   align-items: center;
-  font-size: 1.4rem;
+  font-size: 1.4em;
 
   @media screen and (max-width: $breakpoing-small) {
     flex-direction: column;
@@ -126,7 +130,7 @@ img {
 }
 
 .user__location {
-  font-size: 0.9rem;
+  font-size: 0.9em;
 }
 
 .user__extra {
@@ -160,14 +164,14 @@ img {
 
 .user__extra-heading {
   margin-bottom: $spacing-tight;
-  font-size: 0.8rem;
+  font-size: 0.8em;
   font-weight: 500;
   text-transform: uppercase;
   color: $red;
 }
 
 .user__extra-value {
-  font-size: 0.8rem;
+  font-size: 0.8em;
 }
 
 .summary {
@@ -259,6 +263,11 @@ img {
 
   @media screen and (max-width: $breakpoing-small) {
     flex: 0 1 100%;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
 }
 
@@ -287,4 +296,12 @@ img {
 .activity__detail-value {
   font-size: 1.3rem;
   font-weight: 300;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: $spacing;
+  color: $grey;
+  border-top: 1px solid $light-grey;
 }
