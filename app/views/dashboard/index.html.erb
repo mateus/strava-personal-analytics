@@ -60,7 +60,7 @@
       <% @activities.reverse.each do |activity| %>
         <div class="activity">
           <div class="activity__image">
-            <%= image_tag summary_map_url(activity['map']['summary_polyline']) %>
+            <%= image_tag summary_map_url(activity['map']['summary_polyline']), alt: 'activity map' %>
           </div>
           <div class="activity__content">
             <span class="activity__name"><%= activity['name'] %></span>
