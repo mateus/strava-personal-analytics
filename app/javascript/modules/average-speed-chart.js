@@ -13,7 +13,7 @@ export default function averageSpeedChart(labels = [], average_speeds = []) {
         borderColor: chartColors.purple,
         backgroundColor: chartColors.purple,
         label: "Distance",
-        data: average_speeds.map((speed) => speed.toFixed(2)),
+        data: average_speeds.map((speed) => (speed * 3.6).toFixed(2)),
         fill: false,
       }],
     },
