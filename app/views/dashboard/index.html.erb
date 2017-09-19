@@ -70,6 +70,13 @@
       <h3>Average Speed</h3>
       <canvas id="average_speed"></canvas>
     </div>
+    <div class="chart-wrapper">
+      <h3>Resting vs Moving</h3>
+      <canvas id="total_time_vs_moving_time"></canvas>
+    </div>
+    <div class="chart-wrapper">
+      <!-- ... -->
+    </div>
   </section>
 
   <section class="activities-wrapper">
@@ -115,7 +122,7 @@
     </div>
   </section>
 </div>
-
+<%= list_of(@activities)[:moving_time] %>
 <script>
   window.onload = function() {
     distanceChart(
@@ -125,6 +132,12 @@
     averageSpeedChart(
       <%= raw(list_of(@activities)[:start_date_local]) %>,
       <%= list_of(@activities)[:average_speed] %>
+    );
+    totalTimeVSMovingTimeChart(
+      <%= raw(list_of(@activities)[:start_date_local]) %>,
+      <%= list_of(@activities)[:resting_time] %>,
+      <%= list_of(@activities)[:moving_time] %>,
+      <%= list_of(@activities)[:elapsed_time] %>,
     );
   };
 </script>

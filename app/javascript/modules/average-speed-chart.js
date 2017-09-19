@@ -4,13 +4,14 @@ import metersToKilometers from './meters-to-kilometers';
 
 export default function averageSpeedChart(labels = [], average_speeds = []) {
   const ctx = document.getElementById("average_speed").getContext('2d');
-  window.averageSpeedChart = new Chart(ctx, {
+
+  return  new Chart(ctx, {
     type: 'line',
     data: {
       labels: labels,
       datasets: [{
-        borderColor: chartColors.red,
-        backgroundColor: chartColors.red,
+        borderColor: chartColors.purple,
+        backgroundColor: chartColors.purple,
         label: "Distance",
         data: average_speeds.map((speed) => speed.toFixed(2)),
         fill: false,

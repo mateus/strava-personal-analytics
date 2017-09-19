@@ -5,13 +5,13 @@ import metersToKilometers from './meters-to-kilometers';
 export default function distanceChart(labels = [], distances = []) {
   const ctx = document.getElementById("distance").getContext('2d');
 
-  window.distanceChart = new Chart(ctx, {
+  return new Chart(ctx, {
     type: 'line',
     data: {
       labels: labels,
       datasets: [{
-        borderColor: chartColors.red,
-        backgroundColor: chartColors.red,
+        borderColor: chartColors.blue,
+        backgroundColor: chartColors.blue,
         label: "Distance",
         data: metersToKilometers(distances),
         fill: false,
