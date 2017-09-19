@@ -58,6 +58,7 @@ module DashboardHelper
   end
 
   def summary_map_url(summary_polyline)
-    "https://maps.googleapis.com/maps/api/staticmap?size=350x350&scale=2&path=weight:3%7Ccolor:red%7Cenc:#{summary_polyline}&sensor=true"
+    maps_api_key = ENV.fetch('MAPS_API_KEY')
+    "https://maps.googleapis.com/maps/api/staticmap?size=350x350&scale=2&path=weight:3%7Ccolor:red%7Cenc:#{summary_polyline}&sensor=true&key=#{maps_api_key}"
   end
 end
