@@ -45,6 +45,10 @@ img {
   margin: $spacing-loose auto;
   margin-bottom: 0;
   max-width: 1200px;
+
+  @media screen and (max-width: $breakpoing-medium) {
+    padding: 0 $spacing;
+  }
 }
 
 .container {
@@ -211,6 +215,14 @@ img {
   }
 }
 
+.activities-wrapper {
+  padding: 0 10px;
+
+  @media screen and (max-width: $breakpoing-small) {
+    padding: 0;
+  }
+}
+
 .activities {
   display: flex;
   flex-wrap: wrap;
@@ -283,6 +295,10 @@ img {
   flex-wrap: wrap;
   flex-direction: column;
   margin-bottom: $spacing-loose;
+
+  @media screen and (max-width: $breakpoing-small) {
+    margin-bottom: $spacing;
+  }
 }
 
 .activity__detail-heading {
