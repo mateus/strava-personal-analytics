@@ -41,6 +41,10 @@ img {
   margin: 0 auto;
 }
 
+canvas {
+  min-height: 250px;
+}
+
 .page {
   margin: $spacing-loose auto;
   margin-bottom: 0;

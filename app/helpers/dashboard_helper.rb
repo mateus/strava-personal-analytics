@@ -18,7 +18,7 @@ module DashboardHelper
       resting_time: activities.map {|a| a['elapsed_time'] - a['moving_time']},
       elapsed_time: activities.map {|a| a['elapsed_time']},
       total_elevation_gain: activities.map {|a| a['total_elevation_gain']},
-      start_date_local: activities.map {|a| a['start_date_local'].to_time.strftime('%b %e, %Y')}
+      start_date_local: activities.map {|a| a['start_date_local'].to_time.strftime('%b %e')}
     }
   end
 
