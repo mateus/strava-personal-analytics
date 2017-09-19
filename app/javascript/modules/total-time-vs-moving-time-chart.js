@@ -64,21 +64,16 @@ function secondsToHours(sec_num) {
   let hours = Math.floor(sec_num / 3600);
   let minutes = Math.floor((sec_num - (hours * 3600)) / 60);
 
-  if (hours < 10) {
-    hours = "0" + hours;
-  }
-  if (minutes < 10) {
-    minutes = "0"+minutes;
-  }
-  return hours+':'+minutes;
+  if (hours < 10) { hours = "0" + hours; }
+  if (minutes < 10) { minutes = "0" + minutes; }
+
+  return `${hours}:${minutes}`;
 }
 
 function secondsToString(seconds) {
   const numhours = Math.floor(((seconds % 31536000) % 86400) / 3600);
   const numminutes = Math.floor((((seconds % 31536000) % 86400) % 3600) / 60);
   const numseconds = (((seconds % 31536000) % 86400) % 3600) % 60;
-  if (numhours > 0) {
-    return `${numhours} hours ${numminutes} minutes ${numseconds} seconds`;
-  }
+  if (numhours > 0) { return `${numhours} hours ${numminutes} minutes ${numseconds} seconds`; }
   return `${numminutes} minutes ${numseconds} seconds`;
 }
