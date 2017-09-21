@@ -117,11 +117,11 @@ module DashboardHelper
   private
 
   def current_weather_sunset
-    Time.at(weather_right_now['sys']['sunset']).strftime("%I:%M%P")
+    Time.at(weather_right_now['sys']['sunset']).in_time_zone('Eastern Time (US & Canada)').strftime("%I:%M%P")
   end
 
   def current_weather_sunrise
-    Time.at(weather_right_now['sys']['sunrise']).strftime("%I:%M%P")
+    Time.at(weather_right_now['sys']['sunrise']).in_time_zone('Eastern Time (US & Canada)').strftime("%I:%M%P")
   end
 
   def current_weather_wind_speed
