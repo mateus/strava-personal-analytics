@@ -345,6 +345,7 @@ canvas {
   flex-direction: column;
   padding: $spacing-loose;
   margin: $spacing * -1;
+  margin-bottom: $spacing-tight;
   background-color: $sky;
 
   @media screen and (max-width: $breakpoing-medium) {
