@@ -13,6 +13,7 @@ gem 'webpacker'
 gem 'strava-api-v3'
 gem 'turbolinks', '~> 5'
 gem 'dotenv-rails'
+gem 'open-weather'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

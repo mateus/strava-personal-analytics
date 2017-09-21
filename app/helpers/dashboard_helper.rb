@@ -1,4 +1,6 @@
 module DashboardHelper
+  WEATHER_API_OPTIONS = { units: "metric", APPID: ENV.fetch('OPEN_WEATHER_MAP_KEY') }
+
   def total_distance_all_time(activities)
     distance = list_of(activities)[:distance].sum
     number_to_human(distance, units: :distance, precision: 4)
@@ -99,5 +101,50 @@ module DashboardHelper
     average_speed_arr = list_of(activities)[:average_speed][-5..-1]
     average = average_speed_arr.inject{ |sum, el| sum + el }.to_f / average_speed_arr.size
     meters_per_minute_formated(average)
+  end
+
+  def current_weather
+    {
+      temperature: current_temperature,
+      image: current_weather_image,
+      wind_speed: current_weather_wind_speed,
+      wind_deg: current_weather_wind_deg,
+      sunset: current_weather_sunset,
+      sunrise: current_weather_sunrise,
+    }
+  end
+
+  private
+
+  def current_weather_sunset
+    Time.at(weather_right_now['sys']['sunset']).strftime("%I:%M%P")
+  end
+
+  def current_weather_sunrise
+    Time.at(weather_right_now['sys']['sunrise']).strftime("%I:%M%P")
+  end
+
+  def current_weather_wind_speed
+    "#{weather_right_now['wind']['speed']} km/h"
+  end
+
+  def current_weather_wind_deg
+    "#{weather_right_now['wind']['deg']}°"
+  end
+
+  def current_temperature
+    weather_right_now["main"]["temp"]
+  end
+
+  def current_weather_image
+    "https://openweathermap.org/img/w/#{weather_right_now["weather"][0]["icon"]}.png"
+  end
+
+  def weather_right_now
+    weather_current ||= OpenWeather::Current.city(ENV.fetch('OPEN_WEATHER_MAP_LOCATION'), WEATHER_API_OPTIONS)
+  end
+
+  def weather_forecast
+    weather_forecast ||= OpenWeather::Forecast.city(ENV.fetch('OPEN_WEATHER_MAP_LOCATION'), WEATHER_API_OPTIONS)
   end
 end

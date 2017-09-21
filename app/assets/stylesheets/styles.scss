@@ -7,6 +7,8 @@ $spacing-loose: 20px;
 $red: #fb4b01;
 $light-grey: #e5e5e5;
 $grey: #6a737d;
+$sky: #f5f8f8;
+$light-black: #222222;
 
 $breakpoing-medium: 1000px;
 $breakpoing-small: 620px;
@@ -29,7 +31,7 @@ h1, h2, h3, h4, h5 {
   margin: 0;
 }
 
-h3 {
+h2, h3 {
   font-weight: 500;
   margin-bottom: $spacing + $spacing-tight;
   color: $red;
@@ -46,9 +48,9 @@ canvas {
 }
 
 .page {
-  margin: $spacing-loose auto;
-  margin-bottom: 0;
-  max-width: 1200px;
+  padding: ($spacing-loose + $spacing) $spacing-loose;
+  margin: 0 auto;
+  max-width: 1400px;
 
   @media screen and (max-width: $breakpoing-medium) {
     padding: 0 $spacing;
@@ -204,6 +206,10 @@ canvas {
   }
 }
 
+.summary__item--full {
+  flex: 1 1 100%;
+}
+
 .summary__value {
   font-weight: 300;
   font-size: 1.6rem;
@@ -332,4 +338,101 @@ canvas {
   padding: $spacing;
   color: $grey;
   border-top: 1px solid $light-grey;
+}
+
+.weather {
+  display: flex;
+  flex-direction: column;
+  padding: $spacing-loose;
+  margin: $spacing * -1;
+  background-color: $sky;
+
+  @media screen and (max-width: $breakpoing-medium) {
+    align-items: center;
+    padding: $spacing-loose $spacing;
+  }
+}
+
+.weather__title {
+  color: $light-black;
+  font-weight: 400;
+}
+
+.weather__items {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: $spacing;
+
+  @media screen and (max-width: $breakpoing-medium) {
+    justify-content: center;
+  }
+}
+
+.weather__item {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 180px;
+  padding: 0 $spacing-tight;
+
+  @media screen and (max-width: $breakpoing-medium) {
+    text-align: center;
+    justify-content: center;
+    flex: 0 0 50%;
+    margin-top: $spacing;
+  }
+}
+
+.weather__item-title {
+  color: $light-black;
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: $spacing;
+
+  @media screen and (max-width: $breakpoing-medium) {
+    font-size: 1.2rem;
+  }
+}
+
+.weather__item-value {
+  font-size: 1.3rem;
+  line-height: 1;
+  font-weight: 300;
+
+  @media screen and (max-width: $breakpoing-medium) {
+    font-size: 1rem;
+  }
+}
+
+.temperature {
+  display: flex;
+  justify-content: center;
+  margin-right: $spacing-loose;
+  flex-basis: 150px;
+
+  @media screen and (max-width: $breakpoing-medium) {
+    flex-direction: column-reverse;
+    align-items: center;
+    flex-basis: 100%;
+    margin-right: 0;
+  }
+}
+
+.temperature__value {
+  display: flex;
+  line-height: 1;
+  font-size: 3rem;
+  font-weight: 500;
+  color: $light-black;
+
+  span {
+    font-size: 1.2rem;
+    font-weight: 300;
+  }
+}
+
+.temperature__image {
+  margin: 0;
+  width: 50px;
+  height: 50px;
 }
