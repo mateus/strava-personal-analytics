@@ -125,15 +125,15 @@ module DashboardHelper
   end
 
   def current_weather_wind_speed
-    "#{weather_right_now['wind']['speed']} km/h"
+    "#{weather_right_now['wind']['speed'].round} km/h"
   end
 
   def current_weather_wind_deg
-    "#{weather_right_now['wind']['deg']}°"
+    "#{weather_right_now['wind']['deg'].round}°"
   end
 
   def current_temperature
-    weather_right_now["main"]["temp"]
+    weather_right_now["main"]["temp"].round
   end
 
   def current_weather_image
