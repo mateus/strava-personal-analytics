@@ -78,7 +78,7 @@ module DashboardHelper
   end
 
   def date_formated(date, in_time_zone)
-    in_time_zone = in_time_zone.split(' ')[1]
+    in_time_zone = ENV.fetch('TIMEZONE') || in_time_zone.split(' ')[1]
     date = date.in_time_zone(in_time_zone).strftime('%B %e, %Y at %H:%M%P')
     "#{date} — #{humanize_date(date)}"
   end

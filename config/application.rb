@@ -10,7 +10,7 @@ module StravaPersonalAnalytics
   class Application < Rails::Application
     config.load_defaults 5.1
     config.beginning_of_week = :sunday
-    config.time_zone = 'Eastern Time (US & Canada)'
+    config.time_zone = ENV.fetch('TIMEZONE')
     config.active_record.default_timezone = :local
   end
 end
