@@ -77,14 +77,14 @@ module DashboardHelper
     "#{(meters_per_minute * 3.6).round(2)} km/h"
   end
 
-  def date_formated(date, in_time_zone)
-    in_time_zone = ENV.fetch('TIMEZONE') || in_time_zone.split(' ')[1]
-    date = date.in_time_zone(in_time_zone).strftime('%B %e, %Y at %H:%M%P')
+  def date_formated(date, time_zone)
+    time_zone = time_zone.split(' ')[1]
+    date = date.in_time_zone(time_zone).strftime('%B %e, %Y at %H:%M%P')
     "#{date} — #{humanize_date(date)}"
   end
 
   def humanize_date(date)
-    "#{distance_of_time_in_words(date, Time.zone.now)} ago"
+    "#{distance_of_time_in_words(date, Time.zone.now.in_time_zone(ENV.fetch('TIMEZONE')))} ago"
   end
 
   def summary_map_url(summary_polyline)
