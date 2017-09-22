@@ -100,7 +100,7 @@
           </div>
           <div class="activity__content">
             <span class="activity__name"><%= activity['name'] %></span>
-            <span class="activity__date"><%= date_formated(activity['start_date']) %></span>
+            <span class="activity__date"><%= date_formated(activity['start_date'], activity['timezone']) %></span>
             <div class="activity__details">
               <div class="activity__detail">
                 <span class="activity__detail-heading">Type</span>

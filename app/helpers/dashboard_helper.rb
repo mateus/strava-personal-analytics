@@ -77,8 +77,10 @@ module DashboardHelper
     "#{(meters_per_minute * 3.6).round(2)} km/h"
   end
 
-  def date_formated(date)
-    "#{date.strftime('%B %e, %Y at %H:%M%P')} — #{humanize_date(date)}"
+  def date_formated(date, time_zone)
+    time_zone = time_zone.split(' ')[1]
+    date_formated = date.in_time_zone(time_zone).strftime('%B %e, %Y at %H:%M%P')
+    "#{date_formated} — #{humanize_date(date)}"
   end
 
   def humanize_date(date)
