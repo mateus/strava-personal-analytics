@@ -78,8 +78,7 @@ module DashboardHelper
   end
 
   def date_formated(date)
-    date = date.in_time_zone(ENV.fetch('TIMEZONE')).strftime('%B %e, %Y at %H:%M%P')
-    "#{date} — #{humanize_date(date)}"
+    "#{date.strftime('%B %e, %Y at %H:%M%P')} — #{humanize_date(date)}"
   end
 
   def humanize_date(date)
