@@ -7,6 +7,7 @@ module WeatherHelper
       temperature: current_temperature,
       image: current_weather_image,
       wind_speed: current_weather_wind_speed,
+      wind_deg_formated: current_weather_wind_deg_formated,
       wind_deg: current_weather_wind_deg,
       sunset: current_weather_sunset,
       sunrise: current_weather_sunrise,
@@ -27,8 +28,12 @@ module WeatherHelper
     "#{weather_right_now['wind']['speed'].round} km/h"
   end
 
-  def current_weather_wind_deg
+  def current_weather_wind_deg_formated
     "#{weather_right_now['wind']['deg'].round}°"
+  end
+
+  def current_weather_wind_deg
+    weather_right_now['wind']['deg'].round
   end
 
   def current_temperature

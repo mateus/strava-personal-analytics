@@ -1,0 +1,17 @@
+$navigation-size: 16px;
+
+.navigation {
+  display: inline-block;
+  margin: 0;
+  margin-left: $spacing-tight;
+  width: $navigation-size;
+  height: $navigation-size;
+}
+
+$i: 0;
+@while $i < 360 {
+  .navigation__#{$i} {
+    transform: rotate(#{$i}deg);
+  }
+  $i: $i + 10;
+}
