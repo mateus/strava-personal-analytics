@@ -42,8 +42,4 @@ module WeatherHelper
   def weather_right_now
     weather_current ||= OpenWeather::Current.city(ENV.fetch('OPEN_WEATHER_MAP_LOCATION'), API_OPTIONS)
   end
-
-  def weather_forecast
-    weather_forecast ||= OpenWeather::Forecast.city(ENV.fetch('OPEN_WEATHER_MAP_LOCATION'), API_OPTIONS)
-  end
 end
