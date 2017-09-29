@@ -129,7 +129,7 @@ module DashboardHelper
   end
 
   def current_weather_wind_deg
-    "#{weather_right_now['wind']['deg'].round}°"
+    "#{weather_right_now['wind']['deg'].round || 0}°"
   end
 
   def current_temperature
