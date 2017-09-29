@@ -12,6 +12,7 @@ export default function distanceChart(labels = [], distances = []) {
       datasets: [{
         borderColor: chartColors.blue,
         backgroundColor: chartColors.blue,
+        lineTension: 0,
         label: "Distance",
         data: metersToKilometers(distances),
         fill: false,
@@ -36,6 +37,7 @@ export default function distanceChart(labels = [], distances = []) {
       scales: {
         yAxes: [{
           ticks: {
+            stepSize: 10,
             callback: (value, index, values) => value + ' km',
           },
         }],

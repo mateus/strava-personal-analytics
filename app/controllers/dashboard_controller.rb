@@ -1,5 +1,6 @@
 class DashboardController < ApplicationController
   include DashboardHelper
+  include WeatherHelper
 
   require 'open_weather'
 

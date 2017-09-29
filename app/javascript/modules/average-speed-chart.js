@@ -12,6 +12,7 @@ export default function averageSpeedChart(labels = [], average_speeds = []) {
       datasets: [{
         borderColor: chartColors.purple,
         backgroundColor: chartColors.purple,
+        lineTension: 0,
         label: "Distance",
         data: average_speeds.map((speed) => (speed * 3.6).toFixed(2)),
         fill: false,
