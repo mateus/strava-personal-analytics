@@ -1,6 +1,6 @@
 module WeatherHelper
-  API_OPTIONS = { units: "metric", APPID: ENV.fetch('OPEN_WEATHER_MAP_KEY') }
-  IMAGE_URL = "https://openweathermap.org/img/w/{icon}.png"
+  API_OPTIONS = { units: 'metric', APPID: ENV.fetch('OPEN_WEATHER_MAP_KEY') }
+  IMAGE_URL = 'https://openweathermap.org/img/w/{icon}.png'
 
   def current_weather
     {
@@ -17,11 +17,11 @@ module WeatherHelper
   private
 
   def current_weather_sunset
-    Time.at(weather_right_now['sys']['sunset']).in_time_zone(ENV.fetch('TIMEZONE')).strftime("%I:%M%P")
+    Time.at(weather_right_now['sys']['sunset']).in_time_zone(ENV.fetch('TIMEZONE')).strftime('%I:%M%P')
   end
 
   def current_weather_sunrise
-    Time.at(weather_right_now['sys']['sunrise']).in_time_zone(ENV.fetch('TIMEZONE')).strftime("%I:%M%P")
+    Time.at(weather_right_now['sys']['sunrise']).in_time_zone(ENV.fetch('TIMEZONE')).strftime('%I:%M%P')
   end
 
   def current_weather_wind_speed
@@ -41,7 +41,7 @@ module WeatherHelper
   end
 
   def current_weather_image
-    IMAGE_URL.gsub('{icon}', weather_right_now["weather"][0]["icon"])
+    IMAGE_URL.gsub('{icon}', weather_right_now['weather'][0]['icon'])
   end
 
   def weather_right_now
