@@ -12,6 +12,11 @@ export default function distanceChart(labels = [], distances = []) {
       datasets: [{
         borderColor: chartColors.blue,
         backgroundColor: chartColors.blue,
+        pointRadius: 3,
+        pointBorderColor: chartColors.blue,
+        pointBackgroundColor: chartColors.white,
+        pointBorderWidth: 2,
+        pointHitRadius: 10,
         lineTension: 0,
         label: 'Distance',
         data: metersToKilometers(distances),

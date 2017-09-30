@@ -5,7 +5,8 @@ const chartColors = {
   green: '#69F0AE',
   blue: 'rgb(54, 162, 235)',
   purple: 'rgb(153, 102, 255)',
-  grey: 'rgb(231,233,237)'
+  grey: 'rgb(231,233,237)',
+  white: '#ffffff'
 };
 
 export default chartColors;
