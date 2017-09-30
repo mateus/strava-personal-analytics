@@ -1,0 +1,27 @@
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing;
+  height: 100vh;
+  background-color: $sky;
+}
+
+.not-found__title {
+  font-style: italic;
+  color: $light-black;
+  font-weight: 400;
+}
+
+.not-found__gif {
+  width: 100%;
+  max-width: 600px;
+  margin: $spacing-loose 0;
+}
+
+.not-found__link {
+  color: $light-black;
+  text-transform: uppercase;
+  font-size: 1.6em;
+}

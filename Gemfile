@@ -11,7 +11,6 @@ gem 'pg'
 gem 'sass-rails', '~> 5.0'
 gem 'webpacker'
 gem 'strava-api-v3'
-gem 'turbolinks', '~> 5'
 gem 'dotenv-rails'
 gem 'open-weather'
 

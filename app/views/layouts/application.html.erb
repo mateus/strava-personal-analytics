@@ -10,17 +10,14 @@
 
     <link rel="manifest" href="manifest.json">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_pack_tag 'application' %>
   </head>
 
   <body>
-    <main class="page">
+    <main>
       <%= yield %>
     </main>
-    <footer class="footer">
-      <span>Made with ❤ for myself!</span>
-    </footer>
   </body>
 </html>
