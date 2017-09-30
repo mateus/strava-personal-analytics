@@ -34,6 +34,10 @@
   flex: 0 0 180px;
   padding: 0 $spacing-tight;
 
+  &:last-child {
+    flex: 1;
+  }
+
   @media screen and (max-width: $breakpoing-medium) {
     text-align: center;
     justify-content: center;
