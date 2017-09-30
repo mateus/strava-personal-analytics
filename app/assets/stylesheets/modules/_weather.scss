@@ -1,0 +1,100 @@
+.weather {
+  display: flex;
+  flex-direction: column;
+  padding: $spacing-loose;
+  margin: $spacing * -1;
+  margin-bottom: $spacing-tight;
+  background-color: $sky;
+
+  @media screen and (max-width: $breakpoing-medium) {
+    align-items: center;
+    padding: $spacing-loose $spacing;
+  }
+}
+
+.weather__title {
+  color: $light-black;
+  font-weight: 400;
+}
+
+.weather__items {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: $spacing;
+
+  @media screen and (max-width: $breakpoing-medium) {
+    justify-content: center;
+  }
+}
+
+.weather__item {
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 180px;
+  padding: 0 $spacing-tight;
+
+  @media screen and (max-width: $breakpoing-medium) {
+    text-align: center;
+    justify-content: center;
+    flex: 0 0 50%;
+    margin-top: $spacing;
+  }
+}
+
+.weather__item-title {
+  color: $light-black;
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-bottom: $spacing;
+
+  @media screen and (max-width: $breakpoing-medium) {
+    font-size: 1.2rem;
+  }
+}
+
+.weather__item-value {
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+  line-height: 1;
+  font-weight: 300;
+
+  @media screen and (max-width: $breakpoing-medium) {
+    font-size: 1rem;
+    justify-content: center;
+  }
+}
+
+.temperature {
+  display: flex;
+  justify-content: center;
+  margin-right: $spacing-loose;
+  flex-basis: 150px;
+
+  @media screen and (max-width: $breakpoing-medium) {
+    flex-direction: column-reverse;
+    align-items: center;
+    flex-basis: 100%;
+    margin-right: 0;
+  }
+}
+
+.temperature__value {
+  display: flex;
+  line-height: 1;
+  font-size: 3rem;
+  font-weight: 500;
+  color: $light-black;
+
+  span {
+    font-size: 1.2rem;
+    font-weight: 300;
+  }
+}
+
+.temperature__image {
+  margin: 0;
+  width: 50px;
+  height: 50px;
+}

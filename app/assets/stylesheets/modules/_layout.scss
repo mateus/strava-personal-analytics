@@ -1,0 +1,15 @@
+.page {
+  padding: ($spacing-loose + $spacing) $spacing-loose;
+  margin: 0 auto;
+  max-width: 1400px;
+
+  @media screen and (max-width: $breakpoing-medium) {
+    padding: 0 $spacing;
+    margin-top: $spacing-loose * 2;
+  }
+}
+
+.container {
+  padding: 0 10px;
+  width: 100%;
+}

@@ -1,0 +1,14 @@
+.charts {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.chart-wrapper {
+  flex: 1 1 50%;
+  max-width: 100%;
+  padding: 0 $spacing;
+
+  @media screen and (max-width: $breakpoing-small) {
+    padding: 0;
+  }
+}
