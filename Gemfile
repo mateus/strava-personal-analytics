@@ -13,6 +13,7 @@ gem 'webpacker'
 gem 'strava-api-v3'
 gem 'dotenv-rails'
 gem 'open-weather'
+gem 'autoprefixer-rails'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
