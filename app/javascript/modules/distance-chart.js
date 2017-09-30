@@ -13,7 +13,7 @@ export default function distanceChart(labels = [], distances = []) {
         borderColor: chartColors.blue,
         backgroundColor: chartColors.blue,
         lineTension: 0,
-        label: "Distance",
+        label: 'Distance',
         data: metersToKilometers(distances),
         fill: false,
       }],

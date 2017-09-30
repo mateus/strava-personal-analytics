@@ -3,7 +3,7 @@ import chartColors from './chart-colors';
 import metersToKilometers from './meters-to-kilometers';
 
 export default function averageSpeedChart(labels = [], average_speeds = []) {
-  const ctx = document.getElementById("average_speed").getContext('2d');
+  const ctx = document.getElementById('average_speed').getContext('2d');
 
   return  new Chart(ctx, {
     type: 'line',
@@ -13,7 +13,7 @@ export default function averageSpeedChart(labels = [], average_speeds = []) {
         borderColor: chartColors.purple,
         backgroundColor: chartColors.purple,
         lineTension: 0,
-        label: "Distance",
+        label: 'Distance',
         data: average_speeds.map((speed) => (speed * 3.6).toFixed(2)),
         fill: false,
       }],

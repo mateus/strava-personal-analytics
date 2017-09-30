@@ -3,7 +3,7 @@ import chartColors from './chart-colors';
 import metersToKilometers from './meters-to-kilometers';
 
 export default function totalTimeVSMovingTimeChart(labels = [], restingTime = [], movingTime = [], totalTime = []) {
-  const ctx = document.getElementById("total_time_vs_moving_time").getContext('2d');
+  const ctx = document.getElementById('total_time_vs_moving_time').getContext('2d');
 
   return new Chart(ctx, {
     type: 'bar',
@@ -12,12 +12,12 @@ export default function totalTimeVSMovingTimeChart(labels = [], restingTime = []
       datasets: [{
         borderColor: chartColors.yellow,
         backgroundColor: chartColors.yellow,
-        label: "Resting time",
+        label: 'Resting time',
         data: restingTime,
       }, {
         borderColor: chartColors.green,
         backgroundColor: chartColors.green,
-        label: "Moving time",
+        label: 'Moving time',
         data: movingTime,
       }, {
         type: 'line',
@@ -25,7 +25,7 @@ export default function totalTimeVSMovingTimeChart(labels = [], restingTime = []
         pointRadius: 0,
         borderColor: chartColors.blue,
         backgroundColor: chartColors.blue,
-        label: "Total time",
+        label: 'Total time',
         data: totalTime,
       }],
     },
