@@ -13,8 +13,8 @@ Variables:
 - `DATABASE_PASSWORD` = {Password}
 
 ### Preview
-![screenshot](https://i.imgur.com/btG5KpE.jpg)
+![screenshot](https://i.imgur.com/qkhPRGV.jpg)
 
 #### Mobile
 
-![mobile](https://i.imgur.com/hHrTR1T.png)
+![mobile](https://i.imgur.com/kObVDmo.png)
