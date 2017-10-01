@@ -55,9 +55,9 @@ module DashboardHelper
     meters_per_minute_formated(list_of(activities)[:max_speed].max)
   end
 
-  # from last 5 activities
+  # from last 3 activities
   def current_avg_speed(activities)
-    average_speed_arr = list_of(activities)[:average_speed][-5..-1]
+    average_speed_arr = list_of(activities)[:average_speed][-3..-1]
     average = average_speed_arr.inject{ |sum, el| sum + el }.to_f / average_speed_arr.size
     meters_per_minute_formated(average)
   end
