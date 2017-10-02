@@ -29,10 +29,12 @@ module WeatherHelper
   end
 
   def current_weather_wind_deg_formated
+    return 0 unless !!weather_right_now['wind']['deg']
     "#{weather_right_now['wind']['deg'].round}°"
   end
 
   def current_weather_wind_deg
+    return 0 unless !!weather_right_now['wind']['deg']
     weather_right_now['wind']['deg'].round
   end
 
