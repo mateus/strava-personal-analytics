@@ -8,12 +8,16 @@ module FormatterHelper
   end
 
   def humanize_seconds(secs)
-    [[60, :seconds], [60, :minutes], [24, :hours], [1000, :days]].map{ |count, name|
+    [[60, 'seconds'], [60, 'minutes'], [24, 'hours'], [1000, 'days']].map{ |count, name|
       if secs > 0
         secs, n = secs.divmod(count)
-        "#{n.to_i} #{name}"
+        if n.to_i == 1
+          "#{n.to_i} #{name.singularize}"
+        elsif n.to_i > 0
+          "#{n.to_i} #{name}"
+        end
       end
-    }.compact.reverse.join(' ')
+    }.drop(1).compact.reverse.join(' ')
   end
 
   def meters_per_minute_formated(meters_per_minute)

@@ -61,4 +61,13 @@ module DashboardHelper
     average = average_speed_arr.inject{ |sum, el| sum + el }.to_f / average_speed_arr.size
     meters_per_minute_formated(average)
   end
+
+  def page_description(activities)
+    activity = activities.last
+    distance = meters_formated(activity['distance'])
+    elapsed_time = humanize_seconds(activity['elapsed_time'])
+    moving_time = humanize_seconds(activity['moving_time'])
+    average_speed = meters_per_minute_formated(activity['average_speed'])
+    "Last activity: #{distance} in #{elapsed_time} (#{moving_time} moving) at #{average_speed} average speed."
+  end
 end
