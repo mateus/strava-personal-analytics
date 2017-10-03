@@ -3,7 +3,7 @@ module DashboardHelper
 
   def total_distance_all_time(activities)
     distance = list_of(activities)[:distance].sum
-    number_to_human(distance, units: :distance, precision: 4)
+    meters_formated(distance)
   end
 
   def list_of(activities)
@@ -21,7 +21,7 @@ module DashboardHelper
   def this_week_distance(activities)
     filtered = activities.select { |activity| activity['start_date_local'].to_date >= Date.today.beginning_of_week }
     total_distance = filtered.map { |a| a['distance'] }.sum
-    number_to_human(total_distance, units: :distance, precision: 4)
+    meters_formated(total_distance)
   end
 
   def this_week_time(activities)
@@ -35,7 +35,7 @@ module DashboardHelper
       |activity| activity['start_date_local'].to_date.between?(Date.today.last_week, Date.today.beginning_of_week - 1.day)
     }
     total_distance = filtered.map { |a| a['distance'] }.sum
-    number_to_human(total_distance, units: :distance, precision: 4)
+    meters_formated(total_distance)
   end
 
   def last_week_time(activities)
