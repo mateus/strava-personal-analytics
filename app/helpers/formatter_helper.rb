@@ -1,6 +1,6 @@
 module FormatterHelper
   def meters_formated(meters)
-    number_to_human(meters, units: :distance, precision: 4)
+    number_to_human(meters, units: :distance, precision: 3)
   end
 
   def seconds_formated(seconds)
