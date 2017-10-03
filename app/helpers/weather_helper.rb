@@ -46,7 +46,7 @@ module WeatherHelper
   end
 
   def current_temperature(weather)
-    weather["main"]["temp"].round
+    weather['main']['temp'].round
   end
 
   def current_weather_image(weather)
