@@ -27,27 +27,31 @@
       <div class="summary__item summary__item--full">
         <div class="weather">
           <h2 class="weather__title">Weather in <%= @weather_location %></h3>
-          <div class="weather__items">
-            <div class="temperature">
-              <%= image_tag current_weather[:image], class: 'temperature__image' %>
-              <span class="temperature__value"><%= current_weather[:temperature] %><span>°C</span></span>
+          <% if current_weather %>
+            <div class="weather__items">
+              <div class="temperature">
+                <%= image_tag current_weather[:image], class: 'temperature__image' %>
+                <span class="temperature__value"><%= current_weather[:temperature] %><span>°C</span></span>
+              </div>
+              <div class="weather__item">
+                <h3 class="weather__item-title">Sunrise</h3>
+                <span class="weather__item-value"><%= current_weather[:sunrise] %></span>
+              </div>
+              <div class="weather__item">
+                <h3 class="weather__item-title">Sunset</h3>
+                <span class="weather__item-value"><%= current_weather[:sunset] %></span>
+              </div>
+              <div class="weather__item">
+                <h3 class="weather__item-title">Wind</h3>
+                <span class="weather__item-value">
+                  <%= current_weather[:wind_speed] %> at <%= current_weather[:wind_deg_formated] %>
+                  <%= image_tag asset_path('navigation.svg'), class: "navigation navigation__#{current_weather[:wind_deg]}" %>
+                </span>
+              </div>
             </div>
-            <div class="weather__item">
-              <h3 class="weather__item-title">Sunrise</h3>
-              <span class="weather__item-value"><%= current_weather[:sunrise] %></span>
-            </div>
-            <div class="weather__item">
-              <h3 class="weather__item-title">Sunset</h3>
-              <span class="weather__item-value"><%= current_weather[:sunset] %></span>
-            </div>
-            <div class="weather__item">
-              <h3 class="weather__item-title">Wind</h3>
-              <span class="weather__item-value">
-                <%= current_weather[:wind_speed] %> at <%= current_weather[:wind_deg_formated] %>
-                <%= image_tag asset_path('navigation.svg'), class: "navigation navigation__#{current_weather[:wind_deg]}" %>
-              </span>
-            </div>
-          </div>
+          <% else %>
+            <p><%= @weather_error_message %></p>
+          <% end %>
         </div>
       </div>
       <div class="summary__item">
