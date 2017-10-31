@@ -12,6 +12,9 @@ Variables:
 - `TIMEZONE` = Eastern Time (US & Canada)
 - `DATABASE_PASSWORD` = {Password}
 
+`$ ./bin/webpack-dev-server`
+`$ rails server`
+
 ### Preview
 ![screenshot](https://i.imgur.com/qkhPRGV.jpg)
 
