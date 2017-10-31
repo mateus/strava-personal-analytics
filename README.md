@@ -13,6 +13,7 @@ Variables:
 - `DATABASE_PASSWORD` = {Password}
 
 `$ ./bin/webpack-dev-server`
+
 `$ rails server`
 
 ### Preview
