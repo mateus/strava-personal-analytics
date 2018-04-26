@@ -1,9 +1,13 @@
 module WeatherHelper
-  API_OPTIONS = { units: 'metric', APPID: ENV.fetch('OPEN_WEATHER_MAP_KEY') }
+  require 'rest-client'
+  require 'json'
   IMAGE_URL = 'https://openweathermap.org/img/w/{icon}.png'
 
   def current_weather
-    weather ||= OpenWeather::Current.city(ENV.fetch('OPEN_WEATHER_MAP_LOCATION'), API_OPTIONS)
+    url = 'http://api.openweathermap.org/data/2.5/weather'
+    params = "?units=metric&q=#{ENV.fetch('OPEN_WEATHER_MAP_LOCATION')}&appid=#{ENV.fetch('OPEN_WEATHER_MAP_KEY')}"
+    response = RestClient.get(url + params)
+    weather ||= JSON.parse(response)
 
     if weather['cod'] != 200
       @weather_error_message = weather['message']
