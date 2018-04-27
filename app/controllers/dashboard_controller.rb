@@ -5,7 +5,7 @@ class DashboardController < ApplicationController
   def index
     client = Strava::Api::V3::Client.new(:access_token => ENV.fetch('STRAVA_ACCESS_TOKEN'))
     @athlete = client.retrieve_current_athlete.with_indifferent_access
-    @activities = client.list_athlete_activities.reverse
+    @activities = client.list_athlete_activities({per_page: 200}).reverse
     @weather_location = ENV.fetch('OPEN_WEATHER_MAP_LOCATION').split(',')[0]
   end
 end
